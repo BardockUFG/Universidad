@@ -1,0 +1,34 @@
+{% extends "./plantilla.html" %}
+
+{% block title %} Lab BD gestion transporte {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col md-4 offset-md-4">
+        <h2>Edicion de rutas de transporte publico</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarRutas/" method="POST">{% csrf_token %}
+                  <div class="form-group">
+                       <input type="text" id="txtCodigo" name="txtCodigo" value="{{rutas.codigo}}" class="form-control" placeholder="Codigo" minlenght="6" maxlength="6"
+                       readonly required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="txtNombre" name="txtNombre" value="{{rutas.nombre}}" class="form-control" placeholder="Nombre"  maxlength="50"
+                    required>
+               </div> 
+               <div class="form-group">
+                <input type="text" id="numPasaje" name="numPasaje" value="{{rutas.pasaje}}" class="form-control" min="0.20" max="7.40" value="0.20" 
+                required>
+           </div>   
+           <div class="form-group">
+            <button type="submit" class="btm btn-success btn-block text-white">GUARDAR</button>
+       </div>
+                </form>
+                </div>
+                </div>
+   </div>
+
+    
+
+{% endblock %}
